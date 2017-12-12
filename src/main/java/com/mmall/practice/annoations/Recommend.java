@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 @Documented
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)
-public @interface NotRecommend {
+public @interface Recommend {
 
     String value() default "";
 }
