@@ -1,4 +1,4 @@
-package com.mmall.practice.example;
+package com.mmall.practice.example.count;
 
 import com.mmall.practice.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;

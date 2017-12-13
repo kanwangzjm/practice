@@ -1,20 +1,21 @@
-package com.mmall.practice.example;
+package com.mmall.practice.example.count;
 
-import com.mmall.practice.annoations.NotThreadSafe;
+import com.mmall.practice.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Slf4j
-@NotThreadSafe
-public class CountExample3 {
+@ThreadSafe
+public class CountExample4 {
 
     private static int threadTotal = 200;
     private static int clientTotal = 5000;
 
-    private static volatile long count = 0;
+    private static AtomicLong count = new AtomicLong(0);
 
     public static void main(String[] args) {
         ExecutorService exec = Executors.newCachedThreadPool();
@@ -31,10 +32,10 @@ public class CountExample3 {
             });
         }
         exec.shutdown();
-        log.info("count:{}", count);
+        log.info("count:{}", count.get());
     }
 
     private static void add() {
-        count++;
+        count.incrementAndGet();
     }
 }
