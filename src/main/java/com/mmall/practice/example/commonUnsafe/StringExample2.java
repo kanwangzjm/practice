@@ -1,16 +1,20 @@
-package com.mmall.practice;
+package com.mmall.practice.example.commonUnsafe;
 
+import com.mmall.practice.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
+@ThreadSafe
 @Slf4j
-public class CommonTest {
+public class StringExample2 {
 
     private static int threadNum = 200;
     private static int clientNum = 5000;
+
+    private static StringBuffer stringBuffer = new StringBuffer();
 
     public static void main(String[] args) {
         ExecutorService exec = Executors.newCachedThreadPool();
@@ -28,9 +32,10 @@ public class CommonTest {
             });
         }
         exec.shutdown();
+        log.info("size:{}", stringBuffer.length());
     }
 
     public static void func(int threadNum) {
-        log.info("Thread:{}", threadNum);
+        stringBuffer.append("1");
     }
 }

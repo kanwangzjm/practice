@@ -1,13 +1,19 @@
-package com.mmall.practice;
+package com.mmall.practice.example.commonUnsafe;
 
+import com.mmall.practice.annoations.NotThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
+@NotThreadSafe
 @Slf4j
-public class CommonTest {
+public class DateFormatExample1 {
+
+    private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
 
     private static int threadNum = 200;
     private static int clientNum = 5000;
@@ -31,6 +37,10 @@ public class CommonTest {
     }
 
     public static void func(int threadNum) {
-        log.info("Thread:{}", threadNum);
+        try {
+            log.info("{},{}", threadNum,simpleDateFormat.parse("20171213"));
+        } catch (ParseException e) {
+            log.error("parse exception", e);
+        }
     }
 }

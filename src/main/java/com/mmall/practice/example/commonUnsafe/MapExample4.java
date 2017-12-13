@@ -1,18 +1,23 @@
-package com.mmall.practice;
+package com.mmall.practice.example.commonUnsafe;
 
+import com.mmall.practice.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Hashtable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
+@ThreadSafe
 @Slf4j
-public class CommonTest {
+public class MapExample4 {
+
+    private static Hashtable<Integer, Integer> map = new Hashtable<>();
 
     private static int threadNum = 200;
     private static int clientNum = 5000;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         ExecutorService exec = Executors.newCachedThreadPool();
         final Semaphore semp = new Semaphore(threadNum);
         for (int index = 0; index < clientNum; index++) {
@@ -28,9 +33,10 @@ public class CommonTest {
             });
         }
         exec.shutdown();
+        log.info("size:{}", map.size());
     }
 
     public static void func(int threadNum) {
-        log.info("Thread:{}", threadNum);
+        map.put(threadNum, threadNum);
     }
 }
