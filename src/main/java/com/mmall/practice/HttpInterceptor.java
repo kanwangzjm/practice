@@ -1,5 +1,6 @@
 package com.mmall.practice;
 
+import com.mmall.practice.example.threadLocal.RequestHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -24,5 +25,6 @@ public class HttpInterceptor extends HandlerInterceptorAdapter {
     @Override
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
         log.info("afterCompletion");
+        RequestHolder.remove();
     }
 }

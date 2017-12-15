@@ -22,7 +22,7 @@ public class PracticeApplication extends WebMvcConfigurerAdapter {
     public FilterRegistrationBean httpFilter() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(new HttpFilter());
-        registration.addUrlPatterns("/*");
+        registration.addUrlPatterns("/threadLocal/*");
         return registration;
     }
 
