@@ -6,12 +6,12 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 @Slf4j
-public class ConditionExample {
+public class ConditionExample1 {
 
     public static void main(String[] args) throws Exception {
 
-        final ReentrantLock reentrantLock = new ReentrantLock();
-        final Condition condition = reentrantLock.newCondition();
+        ReentrantLock reentrantLock = new ReentrantLock();
+        Condition condition = reentrantLock.newCondition();
 
         new Thread(() -> {
             try {
@@ -23,7 +23,7 @@ public class ConditionExample {
             }
             log.info("get signal");
             reentrantLock.unlock();
-        }, "waitThread").start();
+        }).start();
 
         new Thread(() -> {
             reentrantLock.lock();
@@ -36,6 +36,6 @@ public class ConditionExample {
             condition.signalAll();
             log.info("send signal ~ ");
             reentrantLock.unlock();
-        }, "signalThread").start();
+        }).start();
     }
 }
