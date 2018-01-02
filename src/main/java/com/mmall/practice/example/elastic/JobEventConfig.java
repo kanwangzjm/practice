@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 @Configuration
 public class JobEventConfig {
 
-    @Resource
+    @Resource(name = "masterDB")
     private DataSource dataSource;
 
     @Bean
