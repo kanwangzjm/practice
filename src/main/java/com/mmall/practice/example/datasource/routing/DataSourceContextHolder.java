@@ -8,7 +8,7 @@ public class DataSourceContextHolder {
     /**
      * 默认数据源
      */
-    public static final String DEFAULT_DATASOURCE = "masterDB";
+    public static final String DEFAULT_DATASOURCE = DataSources.MASTER_DB;
 
     private static final ThreadLocal<String> contextHolder = new ThreadLocal<>();
 
