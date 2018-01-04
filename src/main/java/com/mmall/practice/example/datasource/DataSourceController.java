@@ -34,4 +34,10 @@ public class DataSourceController {
     public JsonData test3(@RequestParam("id") int id) {
         return JsonData.success(dataSourceRoutingService.list3(id));
     }
+
+    @RequestMapping("/test4")
+    @ResponseBody
+    public JsonData test4(@RequestParam("id") int id) {
+        return JsonData.success(dataSourceRoutingService.list4(id));
+    }
 }
