@@ -22,11 +22,11 @@ import java.util.Properties;
 public class MybatisConfig {
 
     @Autowired
-    @Qualifier("masterDB")
+    @Qualifier(DataSources.MASTER_DB)
     private DataSource masterDB;
 
     @Autowired
-    @Qualifier("slaveDB")
+    @Qualifier(DataSources.SLAVE_DB)
     private DataSource slaveDB;
 
     /**
@@ -42,8 +42,8 @@ public class MybatisConfig {
 
         // 配置多数据源
         Map<Object, Object> dsMap = Maps.newHashMap();
-        dsMap.put("masterDB", masterDB);
-        dsMap.put("slaveDB", slaveDB);
+        dsMap.put(DataSources.MASTER_DB, masterDB);
+        dsMap.put(DataSources.SLAVE_DB, slaveDB);
         dynamicDataSource.setTargetDataSources(dsMap);
 
         return dynamicDataSource;
