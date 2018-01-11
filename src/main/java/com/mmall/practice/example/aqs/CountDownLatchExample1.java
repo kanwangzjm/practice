@@ -6,6 +6,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+// http://blog.csdn.net/xianymo/article/details/46865469
 @Slf4j
 public class CountDownLatchExample1 {
 
