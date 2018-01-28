@@ -7,10 +7,13 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
 
 @Slf4j
 @NotThreadSafe
-public class CountExample1 {
+public class CountExample6 {
 
     private static int threadTotal = 200;
     private static int clientTotal = 5000;
@@ -39,6 +42,7 @@ public class CountExample1 {
     }
 
     private static void add() {
+        Lock lock;
         count++;
     }
 }
