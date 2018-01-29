@@ -16,16 +16,8 @@ public class AtomicExample6 {
     public volatile int testInt = 100;
 
     public static void main(String[] args) {
-        for (int i = 0; i < 100; i++) {
-            Thread t = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    if (update.compareAndSet(test, 100, 120)) {
-                        log.info("已修改,{}", test.getTestInt());
-                    }
-                }
-            });
-            t.start();
+        if (update.compareAndSet(test, 100, 120)) {
+            log.info("已修改,{}", test.getTestInt());
         }
     }
 
