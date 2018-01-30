@@ -1,5 +1,6 @@
-package com.mmall.practice.example.mq;
+package com.mmall.practice.example.mq.rabbitmq;
 
+import com.mmall.practice.example.mq.QueueConstants;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +13,7 @@ public class RabbitMQClient {
     private RabbitTemplate rabbitTemplate;
 
     public void send(String message) {
-        rabbitTemplate.convertAndSend(RabbitQueueConstants.TEST, message);
+        rabbitTemplate.convertAndSend(QueueConstants.TEST, message);
     }
 
 }

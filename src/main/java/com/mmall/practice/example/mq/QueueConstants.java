@@ -1,6 +1,6 @@
 package com.mmall.practice.example.mq;
 
-public interface RabbitQueueConstants {
+public interface QueueConstants {
 
     String TEST = "test";
 

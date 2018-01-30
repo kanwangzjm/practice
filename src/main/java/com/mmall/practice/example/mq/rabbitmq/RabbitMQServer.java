@@ -1,5 +1,6 @@
-package com.mmall.practice.example.mq;
+package com.mmall.practice.example.mq.rabbitmq;
 
+import com.mmall.practice.example.mq.QueueConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RabbitMQServer {
 
-    @RabbitListener(queues = RabbitQueueConstants.TEST)
+    @RabbitListener(queues = QueueConstants.TEST)
     private void receive(String message) {
         log.info("{}", message);
     }
