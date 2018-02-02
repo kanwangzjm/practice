@@ -1,6 +1,5 @@
 package com.mmall.practice;
 
-import com.mmall.practice.example.elastic.EmbedZookeeperServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -19,7 +18,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class PracticeApplication extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) {
-        EmbedZookeeperServer.start(6181);
         SpringApplication.run(PracticeApplication.class, args);
     }
 
