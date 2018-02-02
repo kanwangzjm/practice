@@ -16,7 +16,7 @@ import java.util.UUID;
 @Slf4j
 public class KafkaSender {
 
-    @Resource
+//    @Resource
     private KafkaTemplate<String, String> kafkaTemplate;
 
     private Gson gson = new GsonBuilder().create();

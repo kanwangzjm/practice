@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RabbitMQServer {
 
-    @RabbitListener(queues = QueueConstants.TEST)
+//    @RabbitListener(queues = QueueConstants.TEST)
     private void receive(String message) {
         log.info("{}", message);
     }
