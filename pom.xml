@@ -37,6 +37,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>asm</artifactId>
+					<groupId>org.ow2.asm</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- lombok -->
@@ -64,6 +70,12 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-hystrix</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-lang3</artifactId>
+					<groupId>org.apache.commons</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- hystrix dashboard -->
@@ -78,9 +90,45 @@
 
 		<!-- elastic-job -->
 		<dependency>
-			<groupId>com.github.kuhn-he</groupId>
-			<artifactId>elastic-job-lite-spring-boot-starter</artifactId>
+			<groupId>com.dangdang</groupId>
+			<artifactId>elastic-job-lite-core</artifactId>
 			<version>2.1.5</version>
+		</dependency>
+		<dependency>
+			<groupId>com.dangdang</groupId>
+			<artifactId>elastic-job-lite-spring</artifactId>
+			<version>2.1.5</version>
+		</dependency>
+		<dependency>
+			<artifactId>elastic-job-common-core</artifactId>
+			<groupId>com.dangdang</groupId>
+			<version>2.1.5</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>curator-framework</artifactId>
+					<groupId>org.apache.curator</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>curator-recipes</artifactId>
+					<groupId>org.apache.curator</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<artifactId>curator-framework</artifactId>
+			<groupId>org.apache.curator</groupId>
+			<version>2.10.0</version>
+		</dependency>
+		<dependency>
+			<artifactId>curator-recipes</artifactId>
+			<groupId>org.apache.curator</groupId>
+			<version>2.10.0</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>curator-framework</artifactId>
+					<groupId>org.apache.curator</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -134,25 +182,6 @@
 			<artifactId>spring-kafka</artifactId>
 			<version>1.1.1.RELEASE</version>
 		</dependency>
-
-		<!--<dependency>-->
-			<!--<groupId>io.zipkin.java</groupId>-->
-			<!--<artifactId>zipkin-server</artifactId>-->
-			<!--<version>2.4.5</version>-->
-		<!--</dependency>-->
-		<!--<dependency>-->
-			<!--<groupId>io.zipkin.java</groupId>-->
-			<!--<artifactId>zipkin-autoconfigure-ui</artifactId>-->
-			<!--<version>2.4.5</version>-->
-		<!--</dependency>-->
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.cloud</groupId>-->
-			<!--<artifactId>spring-cloud-starter-sleuth</artifactId>-->
-		<!--</dependency>-->
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.cloud</groupId>-->
-			<!--<artifactId>spring-cloud-sleuth-zipkin</artifactId>-->
-		<!--</dependency>-->
 
 	</dependencies>
 

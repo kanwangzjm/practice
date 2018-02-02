@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class ZookeeperRegistryCenterConfig {
 
     @Bean(initMethod = "init")
-    public ZookeeperRegistryCenter regCenter(@Value("${elaticjob.zookeeper.server-lists}") final String serverList,
+    public ZookeeperRegistryCenter zookeeperRegistryCenter(@Value("${elaticjob.zookeeper.server-lists}") final String serverList,
                                              @Value("${elaticjob.zookeeper.namespace}") final String namespace) {
         return new ZookeeperRegistryCenter(new ZookeeperConfiguration(serverList, namespace));
     }
