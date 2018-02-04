@@ -19,10 +19,19 @@ public class SingletonExample2 {
     }
 
     //单例对象
-    private static SingletonExample2 instance = new SingletonExample2();
+    private static SingletonExample2 instance = null;
+
+    static {
+        instance = new SingletonExample2();
+    }
 
     //静态工厂方法
     public static SingletonExample2 getInstance() {
         return instance;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getInstance().hashCode());
+        System.out.println(getInstance().hashCode());
     }
 }
