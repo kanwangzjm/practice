@@ -24,7 +24,7 @@ public class VectorExample2 {
             Thread thread2 = new Thread() {
                 public void run() {
                     for (int i = 0; i < vector.size(); i++) {
-                        vector.get(i);
+                        vector.add(i);
                     }
                 }
             };
