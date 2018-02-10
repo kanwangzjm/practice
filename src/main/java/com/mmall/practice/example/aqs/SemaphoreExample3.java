@@ -21,7 +21,7 @@ public class SemaphoreExample3 {
             final int threadNum = index;
             exec.execute(() -> {
                 try {
-                    if (semp.tryAcquire()) {  // 尝试获取许可
+                    if (semp.tryAcquire(3)) {  // 尝试获取许可
                         log.info("acquire:{}", count.addAndGet(1));
                         func(threadNum);
                         semp.release();  // 释放许可

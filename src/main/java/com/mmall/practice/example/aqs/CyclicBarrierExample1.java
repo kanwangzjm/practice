@@ -3,6 +3,8 @@ package com.mmall.practice.example.aqs;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * 通过它可以实现让一组线程等待至某个状态之后再全部同时执行。叫做回环是因为当所有等待线程都被释放以后，CyclicBarrier可以被重用。
@@ -29,24 +31,28 @@ public class CyclicBarrierExample1 {
 //        log.info("Callback is running");
     });
 
-    public void race() throws Exception {
-        log.info("Thread " + Thread.currentThread().getName() + " is waiting the resource");
+    public void race(int threadNum) throws Exception {
+        Thread.sleep(1000);
+        log.info("{} is ready", threadNum);
         barrier.await();
-        log.info("Thread " + Thread.currentThread().getName() + " got the resource");
+        log.info("{} continue", threadNum);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
+        ExecutorService exec = Executors.newCachedThreadPool();
         final CyclicBarrierExample1 cyclicBarrierExample1 = new CyclicBarrierExample1();
 
-        for (int i = 0; i < 12; i++) {
-            new Thread(() -> {
+        for (int i = 0; i < 10; i++) {
+            final int threadNum = i;
+            Thread.sleep(1000);
+            exec.execute(() -> {
                 try {
-                    cyclicBarrierExample1.race();
+                    cyclicBarrierExample1.race(threadNum);
                 } catch (Exception e) {
                     log.error("exception", e);
                 }
-
-            }, String.valueOf(i)).start();
+            });
         }
     }
 }
