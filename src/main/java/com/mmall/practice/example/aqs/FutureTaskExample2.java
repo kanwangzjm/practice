@@ -25,13 +25,16 @@ public class FutureTaskExample2 {
 
     public static void main(String[] args) {
 
-        FutureTask<Integer> future = new FutureTask<Integer>(new Callable<Integer>() {
-            public Integer call() throws Exception {
-                return new Random().nextInt(100);
+        FutureTask<String> future = new FutureTask<String>(new Callable<String>() {
+            public String call() throws Exception {
+                log.info("do something in callable");
+                Thread.sleep(5000);
+                return "Done";
             }
         });
 
         new Thread(future).start();
+        log.info("do something in main");
         try {
             Thread.sleep(3000);// do something
             log.info("result: {}",future.get());

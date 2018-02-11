@@ -39,9 +39,7 @@ public class FutureTaskExample1 {
 
         ExecutorService executorService = Executors.newCachedThreadPool();
         Future<String> future = executorService.submit(new MyCallable());
-
         log.info("do something 2...");
-
         log.info("get async result：{}", future.get());
         log.info("Completed!");
     }

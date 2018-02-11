@@ -16,25 +16,25 @@ public class ConditionExample1 {
         new Thread(() -> {
             try {
                 reentrantLock.lock();
-                log.info("wait signal");
+                log.info("wait signal"); // 1
                 condition.await();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            log.info("get signal");
+            log.info("get signal"); // 4
             reentrantLock.unlock();
         }).start();
 
         new Thread(() -> {
             reentrantLock.lock();
-            log.info("get lock");
+            log.info("get lock"); // 2
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             condition.signalAll();
-            log.info("send signal ~ ");
+            log.info("send signal ~ "); // 3
             reentrantLock.unlock();
         }).start();
     }
