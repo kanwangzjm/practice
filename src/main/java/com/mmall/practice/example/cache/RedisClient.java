@@ -18,7 +18,9 @@ public class RedisClient {
             jedis.set(key, value);
         } finally {
             //返还到连接池
-            jedis.close();
+            if (jedis != null) {
+                jedis.close();
+            }
         }
     }
 
@@ -30,7 +32,9 @@ public class RedisClient {
             return jedis.get(key);
         } finally {
             //返还到连接池
-            jedis.close();
+            if (jedis != null) {
+                jedis.close();
+            }
         }
     }
 }
