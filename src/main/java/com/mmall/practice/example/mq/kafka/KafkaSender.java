@@ -3,7 +3,6 @@ package com.mmall.practice.example.mq.kafka;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mmall.practice.example.mq.Message;
-import com.mmall.practice.example.mq.QueueConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
@@ -26,6 +25,6 @@ public class KafkaSender {
         message.setMsg(msg);
         message.setSendTime(new Date());
         log.info("send message:{}", message);
-        kafkaTemplate.send(QueueConstants.TEST, gson.toJson(message));
+        kafkaTemplate.send(TopicConstants.TEST, gson.toJson(message));
     }
 }
