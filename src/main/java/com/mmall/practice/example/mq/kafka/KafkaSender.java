@@ -10,13 +10,12 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.Date;
-import java.util.UUID;
 
 @Component
 @Slf4j
 public class KafkaSender {
 
-//    @Resource
+    @Resource
     private KafkaTemplate<String, String> kafkaTemplate;
 
     private Gson gson = new GsonBuilder().create();

@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 @Component
 public class RabbitMQClient {
 
-//    @Resource
+    @Resource
     private RabbitTemplate rabbitTemplate;
 
     public void send(String message) {
