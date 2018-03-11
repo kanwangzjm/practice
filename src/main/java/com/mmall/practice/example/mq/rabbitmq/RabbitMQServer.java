@@ -1,6 +1,5 @@
 package com.mmall.practice.example.mq.rabbitmq;
 
-import com.mmall.practice.example.mq.QueueConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.mmall.practice.example.mq;
+package com.mmall.practice.example.mq.rabbitmq;
 
 public interface QueueConstants {
 

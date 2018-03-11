@@ -1,6 +1,5 @@
 package com.mmall.practice.example.mq.rabbitmq;
 
-import com.mmall.practice.example.mq.QueueConstants;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
 
