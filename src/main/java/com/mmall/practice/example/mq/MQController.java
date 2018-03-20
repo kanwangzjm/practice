@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 @RequestMapping("/mq")
 public class MQController {
 
-    @Resource
+//    @Resource
     private RabbitMQClient rabbitMQClient;
 
     @Resource
@@ -22,7 +22,7 @@ public class MQController {
     @RequestMapping("/send")
     @ResponseBody
     public String send(@RequestParam("message") String message) {
-        rabbitMQClient.send(message);
+//        rabbitMQClient.send(message);
         kafkaSender.send(message);
         return "success";
     }

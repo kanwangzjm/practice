@@ -5,10 +5,10 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Slf4j
-@Component
+//@Component
 public class RabbitMQServer {
 
-    @RabbitListener(queues = QueueConstants.TEST)
+//    @RabbitListener(queues = QueueConstants.TEST)
     private void receive(String message) {
         log.info("{}", message);
     }

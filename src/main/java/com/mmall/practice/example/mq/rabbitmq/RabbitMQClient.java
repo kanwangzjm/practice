@@ -5,10 +5,10 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
-@Component
+//@Component
 public class RabbitMQClient {
 
-    @Resource
+//    @Resource
     private RabbitTemplate rabbitTemplate;
 
     public void send(String message) {
