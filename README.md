@@ -40,3 +40,8 @@ sudo rabbitmq-server
 rabbitmqctl list_queues
 
 http://127.0.0.1:15672/
+
+
+## docker
+
+mvn clean package docker:build
