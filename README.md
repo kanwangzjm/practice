@@ -19,7 +19,7 @@ sh start.sh
 
 本地
 
-cd /usr/local/kfaka
+cd /usr/local/kafka
 
 bin/zookeeper-server-start.sh config/zookeeper.properties
 
@@ -27,7 +27,7 @@ bin/zookeeper-server-start.sh config/zookeeper.properties
 
 本地
 
-cd /usr/local/kfaka
+cd /usr/local/kafka
 
 bin/kafka-server-start.sh config/server.properties
 
