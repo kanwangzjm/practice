@@ -41,6 +41,13 @@ rabbitmqctl list_queues
 
 http://127.0.0.1:15672/
 
+## redis
+
+本地
+
+/usr/local/bin/redis-server 
+
+/usr/local/bin/redis-cli
 
 ## docker
 
