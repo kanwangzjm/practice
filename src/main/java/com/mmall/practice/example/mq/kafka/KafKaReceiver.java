@@ -11,6 +11,6 @@ public class KafKaReceiver {
 
     @KafkaListener(topics = {TopicConstants.TEST})
     public void receive(ConsumerRecord<?, ?> record) {
-        log.info("record:{}", record);
+        log.info("kafka record:{}", record);
     }
 }

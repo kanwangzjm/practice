@@ -60,6 +60,20 @@ rabbitmqctl list_queues
 
 http://127.0.0.1:15672/
 
+安装延迟队列插件：
+
+rabbitmq-plugins enable rabbitmq_delayed_message_exchange
+
+（mac下 /usr/local/Cellar/rabbitmq/3.6.0/plugins，将下载的ez格式放到这个地址）
+
+rabbit插件下载地址：
+
+http://www.rabbitmq.com/community-plugins.html
+
+rabbitmq安装说明：
+
+http://www.rabbitmq.com/installing-plugins.html
+
 ## redis
 
 本地
