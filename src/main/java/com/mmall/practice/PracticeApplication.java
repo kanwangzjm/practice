@@ -1,5 +1,7 @@
 package com.mmall.practice;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -15,7 +17,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 })
 @EnableHystrixDashboard
 @EnableCircuitBreaker
-public class PracticeApplication extends WebMvcConfigurerAdapter {
+@Slf4j
+public class PracticeApplication extends WebMvcConfigurerAdapter implements CommandLineRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(PracticeApplication.class, args);
@@ -32,5 +35,10 @@ public class PracticeApplication extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new HttpInterceptor()).addPathPatterns("/**");
+    }
+
+    @Override
+    public void run(String... strings) throws Exception {
+        log.info("run when start");
     }
 }
