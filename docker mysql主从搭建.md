@@ -8,6 +8,8 @@ sudo docker run --name mysql_master -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -
 ```
 通过镜像 mysql:5.7 启动一个名为 mysql_master 的 MySQL 服务器，端口号是3306，映射的宿主机端口号是3306，root 账号密码是123456
 
+本地如果没镜像的话，拉取的时间长短不一定（可以考虑一些加速器，已经DaoCloud等国内镜像）
+
 ## 2、搭建 Slave
 ```
 sudo docker run --name mysql_slave -p 3307:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7
